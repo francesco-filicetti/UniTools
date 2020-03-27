@@ -59,3 +59,5 @@ fusermount -u /media/gdrive
 rclone copy /opt/dumps_adas/ gdrive:/ICT_backups/adas.unical.it
 ````
 
+# if option allow_other only allowed if 'user_allow_other' is set in /etc/fuse.conf
+uncomment user_allow_other in /etc/fuse.conf
