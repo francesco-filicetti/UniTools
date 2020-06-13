@@ -1,24 +1,30 @@
 dotazione iniziale
 -----
 ````
-apt update && apt upgrade
+apt update && apt upgrade -y
 apt install htop iotop atop hdparm ioping iozone
 
 apt install unattended-upgrades apt-listchanges logrotate ntp
 
-apt install build-essential python3-dev ipython python3-pip libssl-dev htop sudo nmap tcpdump nftables adduser net-tools git
-pip3 install virtualenv uwsgi
+apt install build-essential python3-dev python3-pip libssl-dev htop sudo nmap tcpdump nftables adduser net-tools git iptables-persistent
+pip3 install virtualenv uwsgi ipython
 
 nano /etc/hostname
-nano /etc/sshd
+nano /etc/ssh/sshd_config
 nano /etc/hosts
 
+nano /etc/ntp.conf
+# inserire
+pool ntp.unical.it iburst
+interface ignore wildcard
+interface listen 127.0.0.1
+
+
 USER=
-adduser $USER
+/usr/sbin/adduser $USER
 
-addgroup $USER sudo
-
-deluser operatore
+/usr/sbin/addgroup $USER sudo
+/usr/sbin/deluser operatore
 
 apt clean
 
